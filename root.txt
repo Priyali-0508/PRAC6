@@ -1,0 +1,312 @@
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --list
+cd project-folder
+git init
+git status
+git add filename
+git add .
+
+Commit
+git commit -m "commit message"
+git commit -a -m "commit message"
+
+commit history
+git log
+Show abbreviated statistics
+git log --stat
+Show one-line commits
+git log --oneline
+Custom formatted log
+git log --pretty=format:"%h - %an, %ar : %s"
+Limit number of commits
+git log -n 5
+Show commits by date
+git log --since="2024-01-01"
+git log --until="2024-02-01"
+9. Modify Last Commit
+Change last commit message
+git commit --amend
+10. Unstage a File
+git reset HEAD filename
+
+OR
+
+git restore --staged filename
+
+11. Discard Changes in a File
+git checkout -- filename
+
+12. Clone Remote Repository
+git clone repository_url
+
+13. View Remote Repositories
+git remote
+Show remote URLs
+git remote -v
+
+14. Add Remote Repository
+git remote add origin repository_url
+
+15. Fetch Changes
+git fetch origin
+
+16. Pull Changes
+git pull origin branch_name
+
+17. Inspect Remote
+git remote show origin
+
+18. Rename Remote
+git remote rename oldname newname
+
+19. Remove Remote
+git remote remove remote_name
+
+20. Git Tags
+List tags
+git tag
+Create annotated tag
+git tag -a v1.0 -m "Version 1.0"
+Create signed tag
+git tag -s v1.0 -m "Signed tag"
+Lightweight tag
+git tag v1.0
+Verify tag
+git tag -v v1.4.2
+Push tag to remote
+git push origin v1.0
+
+21. Git Aliases
+
+Example alias for commit:
+
+git config --global alias.ci commit
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GIT COMMANDS WITH ONE-LINE DESCRIPTION
+
+Check Git version
+Shows the installed Git version.
+Command: git --version
+
+Set global username
+Sets the username for all Git commits.
+Command: git config --global user.name "Your Name"
+
+Set global email
+Sets the email for Git commits.
+Command: git config --global user.email "you@example.com
+"
+
+View Git configuration
+Displays all Git configuration settings.
+Command: git config --list
+
+Change directory
+Moves to the project folder.
+Command: cd project-folder
+
+Initialize repository
+Creates a new Git repository.
+Command: git init
+
+Check repository status
+Shows file states (modified, staged, untracked).
+Command: git status
+
+Add file to staging
+Stages a specific file for commit.
+Command: git add filename
+
+Add all files to staging
+Stages all files in the project.
+Command: git add .
+
+Commit changes
+Saves staged changes to the repository.
+Command: git commit -m "message"
+
+View commit history
+Displays full commit history.
+Command: git log
+
+Show commit statistics
+Shows commit history with file change stats.
+Command: git log --stat
+
+One-line commit history
+Displays commits in a short format.
+Command: git log --oneline
+
+Custom formatted log
+Shows commits in custom format.
+Command: git log --pretty=format:"%h - %an : %s"
+
+Limit number of commits
+Shows limited number of commits.
+Command: git log -n 5
+
+Show commits by date
+Filters commits by time range.
+Command: git log --since="2024-01-01"
+
+Amend last commit
+Modifies the last commit message or content.
+Command: git commit --amend
+
+Unstage a file
+Removes a file from staging area.
+Command: git reset HEAD filename
+
+Discard file changes
+Restores file to last committed version.
+Command: git checkout -- filename
+
+Clone repository
+Creates a copy of a remote repository.
+Command: git clone repository_url
+
+Show remotes
+Lists remote repositories.
+Command: git remote
+
+Show remote URLs
+Displays remote names and URLs.
+Command: git remote -v
+
+Add remote repository
+Links a remote repository to the project.
+Command: git remote add origin repository_url
+
+Fetch remote changes
+Downloads changes from remote.
+Command: git fetch origin
+
+Pull remote changes
+Fetches and merges changes from remote.
+Command: git pull origin branch_name
+
+Show remote details
+Displays information about a remote.
+Command: git remote show origin
+
+Rename remote
+Changes the name of a remote repository.
+Command: git remote rename oldname newname
+
+Remove remote
+Deletes a remote connection.
+Command: git remote remove remote_name
+
+Create new branch
+Creates a new branch.
+Command: git branch branch_name
+
+Switch branch
+Switches to another branch.
+Command: git checkout branch_name
+
+Create and switch branch
+Creates a branch and switches to it.
+Command: git checkout -b branch_name
+
+Merge branches
+Combines another branch with the current branch.
+Command: git merge branch_name
+
+List branches
+Shows all branches.
+Command: git branch
+
+Delete branch
+Removes a branch.
+Command: git branch -d branch_name
+
+Show branch commits
+Displays last commit of each branch.
+Command: git branch -v
+
+Show merged branches
+Lists branches already merged.
+Command: git branch --merged
+
+Show unmerged branches
+Lists branches not merged yet.
+Command: git branch --no-merged
+
+Push branch to remote
+Uploads a branch to remote repository.
+Command: git push origin branch_name
+
+Rebase branch
+Moves branch to start from another branch.
+Command: git rebase main
+
+Create tag
+Creates a lightweight tag.
+Command: git tag v1.0
+
+Create annotated tag
+Creates a tag with additional information.
+Command: git tag -a v1.0 -m "version 1.0"
+
+Verify tag
+Verifies a signed tag.
+Command: git tag -v v1.4.2
+
+Push tag
+Uploads tag to remote repository.
+Command: git push origin v1.0
+
+Create Git alias
+Creates a shortcut for a Git command.
+Command: git config --global alias.ci commit
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4
+Navigate to project folder
+Moves to the project directory.
+Command: cd project-folder
+
+Initialize Git repository
+Creates a new Git repository locally.
+Command: git init
+
+Check repository status
+Shows current state of files.
+Command: git status
+
+Add files to staging
+Stages all files for commit.
+Command: git add .
+
+Commit changes
+Saves changes to the repository.
+Command: git commit -m "Initial Commit"
+
+Add remote repository
+Links local repository to GitHub repository.
+Command: git remote add origin <repository-url>
+
+Push code to GitHub
+Uploads code to GitHub repository.
+Command: git push -u origin main
+
+Pull changes from GitHub
+Downloads latest changes from repository.
+Command: git pull origin main
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6
+
+git clone <repository-url>
+git checkout -b new-branch
+git push origin new-branch
+git commit -m "Feature update"
+git remote set-url origin <url>
+git push -u origin master

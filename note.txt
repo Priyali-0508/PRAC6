@@ -1,0 +1,218 @@
+7,8
+mvn archetype:generate 
+Cd 
+ mvn compile 
+mvn test
+mvn package 
+Java-cp target/MavenDemo-1.0-SNAPSHOT.jar compile.college.App
+
+9
+
+mvn archetype:generate
+webapp-j2ee [2655]
+
+Org.webapp.Com
+MyWebApp
+1.0 snapshot 
+
+Cd MyWebApp
+Mvn compile 
+Mvn package 
+
+
+Tomcat\coTo-users.xml-
+<role rolename=”manager-gui”/>
+<user username=”admin” password"12345” roles=”manager-gui”>
+
+Tomcat \bin - startup.bat (start it)
+Broswer- localhost:8080 
+
+
+10
+A.compiler plug
+Pom.xml 
+Make very 1.5 or remove the entire thing 
+
+\MyWebApp\src\main\java\org\mywebapp\com
+MyClass.java
+
+package org.mywebapp.com;
+
+import java.util.*;
+
+public class MyClass
+{
+	public static void main(String[] args)
+	{
+		List<String>stringList=new ArrayList<String>();
+}
+}
+
+mvn compile
+
+B.
+pom.xml
+tomcat
+  </dependencies>
+ <build>
+   <plugins>
+     <plugin>
+	<groupId>org.apache.tomcat.maven</groupId>
+	<artifactId>tomcat7-maven-plugin</artifactId>
+	<version>2.2</version>
+     </plugin>
+   </plugins>
+</build>    
+
+
+</project>
+
+run:
+mvn tomcat7:run
+localhost:8080/yourWebApp
+
+Jetty
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.4.53.v20231009</version>
+        </plugin>
+    </plugins>
+</build>
+
+mvn jetty:run
+localhost:8080
+
+11 
+org.mywebappE.com
+MyWebAppE
+Maven Install
+Maven Build
+Goal: tomcat7:run
+localhost:8080/MyWebAppE
+
+B.
+org.mywebappE.com
+MyWebAppE
+Maven Install
+Maven Build
+Goal: tomcat7:run
+
+
+index.jsp
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>Calculator App</title>
+</head>
+<body>
+    <form action="CalculatorServlet" method="get" >
+        Enter First Number: <input type="text" name="txtN1" ><br>
+        Enter Second Number: <input type="text" name="txtN2" ><br>
+        Select an Operation
+        <input type="radio" name="opr" value="+">ADDTION
+        <input type="radio" name="opr" value="-">SUBSTRACTION
+        <input type="radio" name="opr" value="*">MULTIPLY
+        <input type="radio" name="opr" value="/">DIVIDE <br>
+        <input type="reset">
+        <input type="submit" value="Calculate" >
+    </form>
+</body>
+</html>
+
+CalculatorServlet.java
+package org.mywebappE.com.MyWebbAppE;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;   // ADD THIS
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/CalculatorServlet")   // ADD THIS
+public class CalculatorServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
+        double n1 = Double.parseDouble(request.getParameter("txtN1"));
+        double n2 = Double.parseDouble(request.getParameter("txtN2"));
+        double result = 0;
+
+        String opr = request.getParameter("opr");
+
+        if (opr.equals("+"))
+            result = n1 + n2;
+        else if (opr.equals("-"))
+            result = n1 - n2;
+        else if (opr.equals("*"))
+            result = n1 * n2;
+        else if (opr.equals("/"))
+            result = n1 / n2;
+
+        out.println("<html><body>");
+        out.println("<h1>Result = " + result + "</h1>");
+        out.println("</body></html>");
+    }
+}
+
+xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.mywebappE.com</groupId>
+  <artifactId>MyWebbAppE</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>MyWebbAppE</name>
+
+  <!-- Java Version -->
+  <properties>
+      <maven.compiler.source>8</maven.compiler.source>
+      <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- Tomcat Plugin MUST be inside build -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <port>9090</port>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
+
+Maven Install
+Maven Build
+Goal: tomcat7:run
+localhost:9090/MyWebAppE
